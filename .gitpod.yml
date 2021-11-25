@@ -1,0 +1,16 @@
+github:
+  prebuilds:
+    branches: true
+    master: true
+    addComment: true
+  
+image:
+  file: .gitpod.Dockerfile
+tasks:
+  - init: >
+      mkdir -p /home/gitpod/.config/nix &&
+      echo 'sandbox = false' >> /home/gitpod/.config/nix/nix.conf
+  - before: nix-build
+vscode:
+  extensions:
+    - bbenoist.Nix
